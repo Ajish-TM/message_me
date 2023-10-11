@@ -3,60 +3,43 @@
   Say Something
 </h2>
 
-<div class="ui two column grid">
-  <div class="twelve wide column">
+  <div class="ui two column grid">
+    <div class="twelve wide column">
+      <div class="ui fluid raised card chatbox">
+        <div class="content">
+          <div class="ui feed">
+            <%= render @messages %>
+          </div>
+        </div>
 
-<div class="ui fluid raised card chatbox">
-  <div class="content">
-
-    <div class="ui feed">
+          <div class="extra content">
+            <%= form_for(@message, url: message_path, html: { class: 'ui reply form', role: 'form' }) do |f| %>
+              <div class="field">
+                <div class="ui fluid icon input">
+                  <%= f.text_field :body %>
+                  <%= f.button '<i class="bordered edit link green icon"></i>'.html_safe %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+      </div>
+    </div>
+    <div class="four wide column">
+      <div class="ui card chatbox">
+        <div class="content">
+          <div class="ui inverted vertical menu">
+            <a class="active item">
+              Home
+            </a>
+            <a class="item">
+              Messages
+            </a>
+            <a class="item">
+                Friends
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   
- <%= render @messages %>
-</div>
-
-</div>
-
-  <div class="extra content">
-  <form class="ui reply form">
-  <div class="field">
-    <div class="ui fluid icon input">
-    
-   <input type="text" placeholder="send messages...">
-      <i class="bordered edit link icon"></i>
   </div>
-
-    </div>
-    </form>
-  </div>
-
-</div>
-
-  </div>
-
-
-  <div class="four wide column">
-
-
-  <div class="ui card chatbox">
-  <div class="content">
-
-
-    <div class="ui inverted vertical menu">
-        <a class="active item">
-            Home
-        </a>
-        <a class="item">
-            Messages
-        </a>
-        <a class="item">
-            Friends
-        </a>
-    </div>
-
- </div>
- 
-</div>
-
-  </div>
- 
-</div>
